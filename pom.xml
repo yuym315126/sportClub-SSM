@@ -13,6 +13,22 @@
         <module>sportClub_Web</module>
         <module>sportClub_UserLoginProvider</module>
         <module>sportClub_Pojo</module>
+        <module>sportClub_UserInfoProvider</module>
+        <module>sportClub_UserReceiveAddressProvider</module>
+        <module>sportClub_UserPunchcardProvider</module>
+        <module>sportClub_UserOnlineCourseProvider</module>
+        <module>sportClub_UserPersonalCourseProvider</module>
+        <module>sportClub_UserWalletProvider</module>
+        <module>sportClub_UserSigninProvider</module>
+        <module>sportClub_TrainerLoginProvider</module>
+        <module>sportClub_TrainerInfoProvider</module>
+        <module>sportClub_TrainerPersonalCourseProvider</module>
+        <module>sportClub_TrainerWalletProvider</module>
+        <module>sportClub_TrainerSigninProvider</module>
+        <module>sportClub_ShopsGoodsProvider</module>
+        <module>sportClub_ShopsOrderProvider</module>
+        <module>sportClub_TopicsProvider</module>
+        <module>sportClub_UserSportProvider</module>
     </modules>
 
     <dependencies>
