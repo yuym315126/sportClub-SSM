@@ -1,5 +1,11 @@
 # Project exclude paths
-/sportClub_Common/target/
-/sportClub_Pojo/target/
-/sportClub_UserLoginProvider/target/
-/sportClub_Web/target/
+
+/sport*/target/
+
+# IntelliJ project files
+.idea
+*.iml
+mvnw
+mvnw.cmd
+out
+gen
