@@ -34,9 +34,11 @@ public class JwtUtil {
     public static String parseJWT(String msg){
         return Jwts.parser().setSigningKey(createKey()).parseClaimsJws(msg).getBody().getSubject();
     }
-    //生成秘钥
+    /**
+     *  生成秘钥
+     */
     private static SecretKey createKey() {
-        String key = "dengdeng";
+        String key = "sportClub";
         SecretKey secretKey = new SecretKeySpec(key.getBytes(), "AES");
         return secretKey;
     }
