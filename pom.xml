@@ -29,6 +29,7 @@
         <module>sportClub_ShopsOrderProvider</module>
         <module>sportClub_TopicsProvider</module>
         <module>sportClub_UserSportProvider</module>
+        <module>sportClub_UserDynamicProvider</module>
     </modules>
 
     <dependencies>
