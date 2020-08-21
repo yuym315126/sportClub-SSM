@@ -8,11 +8,6 @@ package com.sportClub.common.constant;
  **/
 public class SystemConstant {
     //令牌的请求消息头
-    public static final String TOKEN_HEADER="dengdengToken";
+    public static final String TOKEN_HEADER="sportClubToken";
 
-    //oss用？？？   贾蓬涛添加
-    public static final String OSS_BUCKET="lx-open";
-    public static final int OSSTYPE_IMG=1;
-    public static final int OSSTYPE_VEDIO=2;
-    public static final int OSSTYPE_JSON=3;
 }

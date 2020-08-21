@@ -36,7 +36,7 @@ public class JwtUtil {
     }
     //生成秘钥
     private static SecretKey createKey() {
-        String key = "dengdeng";
+        String key = "sportClub";
         SecretKey secretKey = new SecretKeySpec(key.getBytes(), "AES");
         return secretKey;
     }
