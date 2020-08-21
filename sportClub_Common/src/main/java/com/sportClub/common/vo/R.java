@@ -47,7 +47,7 @@ public class R<T> {
     }
 
     public static <E> R<E> ok(String msg, E obj){
-        R<E> r=new R<>();
+        R<E> r=new R<E>();
         r.setCode(200);
         r.setMsg(msg);
         r.setData(obj);
@@ -55,14 +55,14 @@ public class R<T> {
     }
 
     public static <E> R<E> ok(String msg){
-        R<E> r=new R<>();
+        R<E> r=new R<E>();
         r.setCode(200);
         r.setMsg(msg);
         return r;
     }
 
     public static <E> R<E> ok(E obj){
-        R<E> r=new R<>();
+        R<E> r=new R<E>();
         r.setCode(200);
         r.setData(obj);
         return r;
@@ -73,7 +73,7 @@ public class R<T> {
     }
 
     public static <E> R<E> fail(String msg, E obj){
-        R<E> r=new R<>();
+        R<E> r=new R<E>();
         r.setCode(400);
         r.setMsg(msg);
         r.setData(obj);
@@ -81,14 +81,14 @@ public class R<T> {
     }
 
     public static <E> R<E> fail(String msg){
-        R<E> r=new R<>();
+        R<E> r=new R<E>();
         r.setCode(400);
         r.setMsg(msg);
         return r;
     }
 
     public static <E> R<E> fail(E obj){
-        R<E> r=new R<>();
+        R<E> r=new R<E>();
         r.setCode(400);
         r.setData(obj);
         return r;
