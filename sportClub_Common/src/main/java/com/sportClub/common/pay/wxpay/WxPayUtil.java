@@ -4,7 +4,7 @@ package com.sportClub.common.pay.wxpay;
 
 import com.alipay.api.internal.util.StringUtils;
 import com.sportClub.common.config.PayConfig;
-import com.sportClub.common.dto.PayDto;
+import com.sportClub.common.pay.PayDto;
 
 import java.util.*;
 

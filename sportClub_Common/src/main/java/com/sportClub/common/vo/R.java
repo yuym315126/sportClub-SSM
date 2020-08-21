@@ -94,6 +94,8 @@ public class R<T> {
         return r;
     }
 
+
+
     public static R fail(){
         return R.fail("fail",null);
     }
