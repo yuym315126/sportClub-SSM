@@ -1,4 +1,4 @@
-package com.sportClub.common.dto;
+package com.sportClub.common.pay;
 
 import lombok.Data;
 
