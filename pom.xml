@@ -29,6 +29,7 @@
         <module>sportClub_ShopsOrderProvider</module>
         <module>sportClub_TopicsProvider</module>
         <module>sportClub_UserSportProvider</module>
+        <module>sportClub_UserDynamicProvider</module>
     </modules>
 
     <dependencies>
@@ -39,5 +40,17 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

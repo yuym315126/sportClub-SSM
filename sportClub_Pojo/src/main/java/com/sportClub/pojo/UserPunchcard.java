@@ -20,8 +20,7 @@ public class UserPunchcard implements Serializable {
     /**
     * 打卡id
     */
-    private Integer 
-punchcardId;
+    private Integer punchcardId;
 
     /**
     * 用户id
