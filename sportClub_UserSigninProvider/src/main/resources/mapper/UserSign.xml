@@ -4,13 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sportClub.provider.dao.UserSignDao">
 
-    <resultMap id="userSignDtoBase" type="com.sportClub.common.dto.userSignDto.UserSignDto">
+    <resultMap id="base" type="com.sportClub.pojo.UserSign">
         <id column="sign_id" property="signId"/>
         <result column="user_id" property="userId"/>
         <result column="sign_datetime" property="signDatetime"/>
     </resultMap>
     
-    <select id="findByUserId" resultMap="userSignDtoBase">
+    <select id="findByUserId" resultMap="base">
         select sign_id,user_id,sign_datetime from user_sign where user_id=#{userId};
     </select>
 

@@ -7,7 +7,7 @@ package com.sportClub.common.config;
 public class RedisKeyConfig {
     //令牌
     public static final String PHONE_TOKEN="voter:phone:";//后面追加phone 值存储令牌
-    public static final String TOKEN_USER="voter:token:";//后面追加令牌 值存储用户信息
+//    public static final String TOKEN_USER="voter:token:";//后面追加令牌 值存储用户信息
     public static final String TOKEN_EMAIL="voter:text:";//后面追加邮箱
 
     public static final String TOKEN_EMAILD="voter:recemail:";//后面追加邮箱

@@ -2,8 +2,6 @@ package com.sportClub.provider.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.sportClub.common.config.RedisKeyConfig;
-import com.sportClub.common.dto.userSignDto.UserSignDto;
-import com.sportClub.common.until.BeanUtil;
 import com.sportClub.common.vo.R;
 import com.sportClub.pojo.User;
 import com.sportClub.pojo.UserSign;
@@ -13,6 +11,7 @@ import com.sportClub.provider.service.UserSignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -21,10 +20,10 @@ import java.util.Date;
  * @date: 2020/8/21 19:58
  * @description:
  */
-@Service
+@Service("userSignService")
 public class UserSignInServiceImpl implements UserSignService {
 
-    @Autowired
+    @Resource
     private UserSignDao userSignDao;
     @Autowired
     private JedisCore jedisCore;
@@ -36,15 +35,17 @@ public class UserSignInServiceImpl implements UserSignService {
      */
     @Override
     public R findUserSignIn(String token) {
+        System.err.println("token: "+token);
         if(!jedisCore.checkKey(RedisKeyConfig.TOKEN_USER+token)){
+            System.err.println("true");
             //通过token获取用户
-            User user = JSON.parseObject(jedisCore.get(RedisKeyConfig.TOKEN_USER + token), User.class);
+//            User user = JSON.parseObject(jedisCore.get(RedisKeyConfig.TOKEN_USER + token), User.class);
             Integer userId=1;
-            UserSignDto byUserId = userSignDao.findByUserId(userId);
+            UserSign userSign = userSignDao.findByUserId(userId);
+            System.err.println(userSign);
             //判断用户是否打过卡
-            if(null!=byUserId){
+            if(null!=userSign){
                 //用户打过卡，返回打卡记录
-                UserSign userSign = BeanUtil.copyDto(UserSign.class, byUserId);
                 //获取连续打卡天数
                 Long countDay = jedisCore.incrKey(RedisKeyConfig.COUNT_DAY_USER + userId);
                 userSign.setSignCountDays(Integer.parseInt(countDay.toString()));
@@ -70,7 +71,7 @@ public class UserSignInServiceImpl implements UserSignService {
 
             User user = JSON.parseObject(jedisCore.get(RedisKeyConfig.TOKEN_USER + token), User.class);
             Integer userId=user.getUserId();
-            UserSignDto byUserId = userSignDao.findByUserId(userId);
+            UserSign byUserId = userSignDao.findByUserId(userId);
             //首次打卡
             if(null==byUserId){
                 //说明首次打卡 添加打卡数据
@@ -114,7 +115,7 @@ public class UserSignInServiceImpl implements UserSignService {
 
     }
     public int isContinuousTime(Integer userId){
-        UserSignDto byUserId = userSignDao.findByUserId(userId);
+        UserSign byUserId = userSignDao.findByUserId(userId);
         Date signDatetime = byUserId.getSignDatetime();
 
         //日历类
