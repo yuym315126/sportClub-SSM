@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.sportClub.provider.dao.TopicDao">
+    <resultMap id="queryTopicListMap" type="com.sportClub.common.dto.topicDto.QueryTopicListDto">
+        <id property="topicId" column="topic_id"/>
+        <result property="topicName" column="topic_name"/>
+        <result property="topicImgUrl" column="topic_pic_url"/>
+    </resultMap>
+
+    <resultMap id="QueryOneTopicDtoMap" type="com.sportClub.common.dto.topicDto.QueryOneTopicDto">
+        <id property="topicId" column="topic_id"/>
+        <result property="topicName" column="topic_name"/>
+        <result property="topicContent" column="topic_describe"/>
+        <result property="userCount" column="userCount"/>
+        <result property="talkCount" column="talkCount"/>
+    </resultMap>
+
+    <select id="queryTopicList" resultMap="queryTopicListMap">
+        select topic_id,
+               topic_name,
+               topic_pic_url
+        from db_sport.topic;
+    </select>
+
+    <!-- 通过话题Id查询话题信息 包含话题下的动态数和用户数 -->
+    <select id="queryTopicByTopicId" resultMap="QueryOneTopicDtoMap">
+        SELECT userCount,
+               talkCount,
+               topic_id,
+               topic_name,
+               topic_describe
+        FROM (SELECT COUNT(DISTINCT user_id) AS userCount FROM db_sport.talk) AS table1,
+             (SELECT COUNT(talk_id) AS talkCount FROM db_sport.talk WHERE talk.topic_id = #{topicId}) as table2,
+             db_sport.topic
+        WHERE topic.topic_id = #{topicId}
+    </select>
+
+</mapper>
