@@ -1,5 +1,6 @@
 package com.sportClub.provider.dao;
 
+import com.sportClub.common.dto.userSignDto.UserSignDto;
 import com.sportClub.pojo.UserSign;
 import org.springframework.stereotype.Repository;
 
@@ -11,10 +12,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserSignDao {
     //查询用户签到记录
-    UserSign findByUserId(Integer userId);
+    UserSignDto findByUserId(Integer userId);
 
     //修改用户签到记录
-    int updateSign(UserSign userSign);
+    int updateSign(Integer userId);
 
     //添加签到数据
     int addUserSign(Integer userId);
