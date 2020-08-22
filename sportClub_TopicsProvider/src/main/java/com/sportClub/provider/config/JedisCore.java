@@ -55,5 +55,16 @@ public class JedisCore {
     public void expire(String key,int seconds){
         jedis.expire(key,seconds);
     }
+    public Long incrKey(String key){
+        return jedis.incr(key);
+    }
+    public boolean persist(String key){
+        Long persist = jedis.persist(key);
+        if(persist==0){
+            return true;
+        }else {
+            return false;
+        }
+    }
 
 }
