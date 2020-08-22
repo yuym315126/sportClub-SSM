@@ -14,13 +14,16 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddUserSignInDto {
-
+public class UserSignDto {
+    /**
+     * 签到id
+     */
+    private Integer signId;
 
     /**
-     * 连续签到天数
+     * 用户id
      */
-    private Integer signCountDays;
+    private Integer userId;
 
     /**
      * 签到时间
