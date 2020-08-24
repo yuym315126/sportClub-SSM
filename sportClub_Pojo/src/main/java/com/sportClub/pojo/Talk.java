@@ -47,5 +47,10 @@ public class Talk implements Serializable {
     */
     private Integer talkLikeNum;
 
+    /**
+     * 话题Id
+     */
+    private Integer topicId;
+
     private static final long serialVersionUID = 1L;
 }

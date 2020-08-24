@@ -24,7 +24,7 @@ public class OntimeCourseLv implements Serializable {
     /**
     * 在线课程等级描述
     */
-    private String courseName;
+    private String lvName;
 
     private static final long serialVersionUID = 1L;
 }
